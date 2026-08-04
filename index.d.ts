@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,30 +16,17 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
 
-var numelDimension = require( '@stdlib/ndarray-base-numel-dimension' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var strided = require( '@stdlib/blas-ext-base-zindex-of-truthy' ).ndarray;
-
-
-// MAIN //
+import { complex128ndarray } from '@stdlib/types/ndarray';
 
 /**
 * Returns the index of the first truthy element in a one-dimensional double-precision complex floating-point ndarray.
 *
-* ## Notes
-*
-* -   The function expects the following ndarrays:
-*
-*     -   a one-dimensional input ndarray.
-*
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing ndarrays
-* @returns {integer} index
+* @param arrays - array-like object containing ndarrays
+* @returns index
 *
 * @example
 * var Complex128Vector = require( '@stdlib/ndarray-vector-complex128' );
@@ -49,12 +36,9 @@ var strided = require( '@stdlib/blas-ext-base-zindex-of-truthy' ).ndarray;
 * var idx = zindexOfTruthy( [ x ] );
 * // returns 1
 */
-function zindexOfTruthy( arrays ) {
-	var x = arrays[ 0 ];
-	return strided( numelDimension( x, 0 ), getData( x ), getStride( x, 0 ), getOffset( x ) ); // eslint-disable-line max-len
-}
+declare function zindexOfTruthy( arrays: [ complex128ndarray ] ): number;
 
 
 // EXPORTS //
 
-module.exports = zindexOfTruthy;
+export = zindexOfTruthy;
